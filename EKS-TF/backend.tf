@@ -1,8 +1,9 @@
 terraform {
   backend "s3" {
-    bucket       = "samanth-terraform-state-bucket"
+    bucket       = "dev-sam-tf-bucket"
     region       = "us-east-1"
     key          = "End-to-End-Kubernetes-DevSecOps-Tetris-Project/EKS-TF/terraform.tfstate"
+    dynamodb_table = "terraform-state-locks"
     encrypt      = true
   }
   required_version = ">=1.14.0"
